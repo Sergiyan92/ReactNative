@@ -13,8 +13,14 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import BackGround from "../assets/photo_bg.jpg";
 
 const LoginScreen = () => {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const onLogin = () => {
+    console.log("Credentials", `${password} + ${email}`);
+    setEmail("");
+    setPassword("");
+  };
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -27,6 +33,8 @@ const LoginScreen = () => {
         <View style={styles.container}>
           <Text style={styles.title}>Увійти</Text>
           <TextInput
+            value={email}
+            onChangeText={setEmail}
             style={styles.input}
             placeholder="Адреса електронної пошти"
           />
@@ -48,7 +56,7 @@ const LoginScreen = () => {
             </TouchableOpacity>
           </View>
           <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText} onPress={() => {}}>
+            <Text style={styles.buttonText} onPress={onLogin}>
               Увійти
             </Text>
           </TouchableOpacity>

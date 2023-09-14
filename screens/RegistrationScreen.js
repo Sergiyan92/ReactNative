@@ -15,8 +15,16 @@ import LogoImage from "../assets/avatar.jpg";
 import BackGround from "../assets/photo_bg.jpg";
 
 const RegistrationScreen = () => {
+  const [login, setLogin] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const onRegistr = () => {
+    console.log("Credentials", `${login} + ${password} + ${email}`);
+    setLogin("");
+    setEmail("");
+    setPassword("");
+  };
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -29,8 +37,15 @@ const RegistrationScreen = () => {
         <View style={styles.container}>
           <Image source={LogoImage} style={styles.logo} />
           <Text style={styles.title}>Реєстрація</Text>
-          <TextInput style={styles.input} placeholder="Логін" />
           <TextInput
+            value={login}
+            onChangeText={setLogin}
+            style={styles.input}
+            placeholder="Логін"
+          />
+          <TextInput
+            value={email}
+            onChangeText={setEmail}
             style={styles.input}
             placeholder="Адреса електронної пошти"
           />
@@ -52,7 +67,7 @@ const RegistrationScreen = () => {
             </TouchableOpacity>
           </View>
           <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText} onPress={() => {}}>
+            <Text style={styles.buttonText} onPress={onRegistr}>
               Зареєструватися
             </Text>
           </TouchableOpacity>
