@@ -8,18 +8,21 @@ import {
   TextInput,
   Button,
 } from "react-native";
-
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+
 import BackGround from "../assets/photo_bg.jpg";
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation, login }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const onLogin = () => {
     console.log("Credentials", `${password} + ${email}`);
-    setEmail("");
-    setPassword("");
+
+    navigation.navigate("Home", {
+      screen: "Публікації",
+      params: { login, email },
+    });
   };
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -60,7 +63,10 @@ const LoginScreen = () => {
               Увійти
             </Text>
           </TouchableOpacity>
-          <Button title="Немає акаунту? Зареєструватися" onPress={() => {}} />
+          <Button
+            title="Немає акаунту? Зареєструватися"
+            onPress={() => navigation.navigate("Registration")}
+          />
         </View>
       </ImageBackground>
     </KeyboardAwareScrollView>
