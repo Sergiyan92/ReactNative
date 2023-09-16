@@ -28,7 +28,7 @@ const Home = () => {
         name="Публікації"
         component={PostsScreen}
         options={{
-          // title: "",
+          tabBarLabel: "",
           headerRight: () => (
             <TouchableOpacity style={styles.button} onPress={handleLogout}>
               <Ionicons name="log-out" size={24} color="#BDBDBD" />
@@ -43,7 +43,7 @@ const Home = () => {
         name="Створити публікацію"
         component={CreatePostsScreen}
         options={{
-          // title: "",
+          tabBarLabel: "",
           tabBarIcon: () => (
             <Image source={CreateIcon} style={{ width: 70, height: 40 }} />
           ),
@@ -53,7 +53,7 @@ const Home = () => {
         name="Профіль"
         component={ProfileScreen}
         options={{
-          // title: "",
+          tabBarLabel: "",
           tabBarIcon: () => (
             <Image source={InfoIcon} style={{ width: 40, height: 40 }} />
           ),
