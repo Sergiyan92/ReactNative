@@ -13,24 +13,23 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 
 import LogoImage from "../assets/avatar.jpg";
 import BackGround from "../assets/photo_bg.jpg";
-import { useNavigation } from "@react-navigation/native";
 
 const RegistrationScreen = ({ navigation }) => {
-  // const navigation = useNavigation();
   const [login, setLogin] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
   const onRegistr = () => {
     console.log("Credentials", `${login} + ${password} + ${email}`);
     navigation.navigate("Home", {
       screen: "Публікації",
       params: { login, email },
     });
-    // navigation.navigate("Home", {
-    //   screen: "Профіль",
-    //   params: { login },
-    // });
+    navigation.navigate("Home", {
+      screen: "Профіль",
+      params: { login },
+    });
   };
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);

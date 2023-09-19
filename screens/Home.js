@@ -9,6 +9,7 @@ import { useNavigation } from "@react-navigation/native";
 import PostsIcon from "../assets/icons/grid.png";
 import CreateIcon from "../assets/icons/new.png";
 import InfoIcon from "../assets/icons/user.png";
+import CommentsScreen from "./CommentsScreen";
 const Tab = createBottomTabNavigator();
 
 const Home = () => {
